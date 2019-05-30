@@ -16,6 +16,31 @@ main(int argc, char *argv[])
     exit();
   }
 
+  if(pid > 0) {
+    int pid2 = fork();
+    if(pid2 < 0) {
+      printf(1, "TEST FAILED\n");
+      exit();
+    }
+
+    if(pid2 == 0) {
+      if (dummy != 1) {
+        printf(1, "TEST FAILED\n");
+        exit();
+      }
+
+      dummy = 3;
+      if (dummy != 3) {
+        printf(1, "TEST FAILED\n");
+        exit();
+      }
+//    assert(dummy == 5);
+      printf(1, "I'm child process, dummy = %d\n", dummy);
+      sleep(2);
+      exit();
+    }
+  }
+
   if(pid == 0) {
     if (dummy != 1) {
       printf(1, "TEST FAILED\n");
@@ -29,7 +54,7 @@ main(int argc, char *argv[])
     }
 //    assert(dummy == 5);
     printf(1, "I'm child process, dummy = %d\n", dummy);
-    sleep(5);
+    sleep(2);
     exit();
   }
   // parent

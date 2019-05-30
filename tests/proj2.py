@@ -34,7 +34,7 @@ class whenTryingToAllocateAboveUsertop_sbrkShouldFail(Xv6Test):
                 "Then try to allocate 6 more pages, which would blow through USERTOP.  sbrk should return -1."
   tester = "ctests/proj2/" + name + ".c"
   make_qemu_args = "CPUS=1"
-  point_value = 10
+  point_value = 2
   timeout = 10
 
 class whenTryingToReallocateAPageNearUsertop_sbrkShouldSucceed(Xv6Test):
@@ -43,7 +43,7 @@ class whenTryingToReallocateAPageNearUsertop_sbrkShouldSucceed(Xv6Test):
                 "Then deallocate one page and reallocate one page.  Make sure both calls to sbrk succeed."
   tester = "ctests/proj2/" + name + ".c"
   make_qemu_args = "CPUS=1"
-  point_value = 10
+  point_value = 3
   timeout = 10
 
 #Part 2
@@ -52,7 +52,7 @@ class forkLargeMemTest(Xv6Test):
   description = "Part 2: Test the stability when forking a large bunch of memory."
   tester = "ctests/proj2/" + name + ".c"
   make_qemu_args = "CPUS=1"
-  point_value = 10
+  point_value = 15
   timeout = 10
 
 class forkCowTest(Xv6Test):
@@ -65,7 +65,16 @@ class forkCowTest(Xv6Test):
 
 class forkCowTest2(Xv6Test):
   name = "forkCowTest2"
-  description = "Part 2: Test cpy-on-write folk 2."
+  description = "Part 2: Test cpy-on-write folk: fork the parent 30 times."
+  tester = "ctests/proj2/" + name + ".c"
+  make_qemu_args = "CPUS=1"
+  point_value = 10
+  timeout = 60
+
+class forkCowTest3(Xv6Test):
+  name = "forkCowTest3"
+  description = "Part 2: Test cpy-on-write folk: fork two children, make changes in both children. " + \
+                "Test whether the memory content changed."
   tester = "ctests/proj2/" + name + ".c"
   make_qemu_args = "CPUS=1"
   point_value = 10
@@ -76,5 +85,5 @@ import toolspath
 from testing.runtests import main
 main(Xv6Build, [deref_null, deref_0x1000, alloc_155_pages, whenTryingToAllocateAboveUsertop_sbrkShouldFail,
                whenTryingToReallocateAPageNearUsertop_sbrkShouldSucceed,
-               forkLargeMemTest, forkCowTest, forkCowTest2])
+               forkLargeMemTest, forkCowTest, forkCowTest2, forkCowTest3])
 #main(Xv6Build, [shmem_access_communication])

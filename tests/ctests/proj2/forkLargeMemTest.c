@@ -21,8 +21,6 @@ main(int argc, char *argv[])
 		printf(1, "TEST FAILED\n");
 		exit();
 	}
-
-
 	printf(1, "TEST PASSED\n");
 	free(dummy);
 	exit();
