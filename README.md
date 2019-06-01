@@ -26,7 +26,7 @@ should do a test run of the autograder on your own xv6 code to assure yourself t
 1. Put autograding under your `~` folder to make its path to be like `~/autograding`.
 2. Put all submission repos in a root folder. For example, create a folder `~/allFolder` and put `proj1_kaiyuhou` and `proj1_kaiyuhou2` directly under `~/allFolder`.
 3. Naviagete to this root folder.
-4. execute the command. Proj1: `~/autograding/tests/batch_runtests`, Proj2: `~/autograding/tests/batch_runtests2`.
+4. execute the command. Proj1: `~/autograding/tests/batch_runtests`, Proj2: `~/autograding/tests/batch_runtests2`, Proj3: `~/autograding/tests/batch_runtests3`.
 
 The grading logs will be stored on the root directory of every submission as file like `runtests_regrade1.log`.
 
