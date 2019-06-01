@@ -16,21 +16,20 @@ def get_description(name):
   return desc.strip()
 
 test_values = [
-  {'name': 'clone', 'point_value': 6.8},
-  {'name': 'clone2', 'point_value': 6.4},
+  {'name': 'clone', 'point_value': 5.8},
+  {'name': 'clone2', 'point_value': 5.4},
   {'name': 'clone3', 'point_value': 6.4},
-  {'name': 'clone4', 'point_value': 6.4},
+  {'name': 'clone4', 'point_value': 6.4, 'timeout': 40},
   {'name': 'clone-and-exit', 'point_value': 6.4, 'timeout': 40},
   {'name': 'badclone', 'point_value': 6.4},
   {'name': 'stack', 'point_value': 6.4},
-  {'name': 'join', 'point_value': 6.4},
-  {'name': 'join2', 'point_value': 6.4},
-  {'name': 'join3', 'point_value': 6.4},
-  {'name': 'join4', 'point_value': 6.4},
-  {'name': 'join5', 'point_value': 6.4, 'timeout': 20},
+  {'name': 'join', 'point_value': 5.4, 'timeout': 40},
+  {'name': 'join2', 'point_value': 6.4, 'timeout': 40},
+  {'name': 'join3', 'point_value': 8.6, 'timeout': 40},
+  {'name': 'join4', 'point_value': 8.6, 'timeout': 40},
   #{'name': 'join6', 'point_value': 6},   # have to remove this because my code doesn't pass it
-  {'name': 'sbrk-race', 'point_value': 6.4, 'timeout': 10},
-  {'name': 'sbrk-size', 'point_value': 6.4, 'timeout': 10},
+  {'name': 'sbrk-race', 'point_value': 6.4, 'timeout': 60},
+  {'name': 'sbrk-size', 'point_value': 6.4, 'timeout': 60},
   #{'name': 'sbrk-size2', 'point_value': 5, 'timeout': 10},   # not really sure this is even supposed to pass
   {'name': 'ec-thread_create', 'point_value': 2},
   {'name': 'ec-thread_create2', 'point_value': 2},

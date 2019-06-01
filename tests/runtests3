@@ -1,0 +1,4 @@
+#!/bin/bash
+base=~/autograding/tests
+python $base/proj3.py --test-path $base $@ | tee runtests_regrade3.log
+exit $?

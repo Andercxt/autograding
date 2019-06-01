@@ -1,0 +1,12 @@
+#!/bin/bash
+work_path=$(pwd)
+for file in ./*
+do
+	if [ -d ${file} ]; then
+		echo testing ${file}		
+		cd ${file}
+		~/autograding/tests/runtests3 -c 
+		cd ..
+	fi
+done
+exit $?
